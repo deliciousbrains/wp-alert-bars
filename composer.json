@@ -1,0 +1,23 @@
+{
+  "name": "deliciousbrains/wp-alert-bars",
+  "description": "WordPress must-use plugin for managing alert bars.",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Delicious Brains",
+      "email": "nom@deliciousbrains.com",
+      "homepage": "https://deliciousbrains.com/"
+    }
+  ],
+  "type": "wordpress-muplugin",
+  "require": {
+    "composer/installers": "~1.0",
+    "deliciousbrains/wp-post-types": "dev-master",
+    "lkwdwrd/wp-muplugin-loader": "~1.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DeliciousBrains\\WPAlertBars\\": "src/"
+    }
+  }
+}
