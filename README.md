@@ -1,3 +1,3 @@
-# Delicious Brains WordPress Testimonials
+# Delicious Brains WordPress Alert Bars
 
-WordPress must-use plugin for managing testimonials, importing from tweets and displaying them.
+WordPress must-use plugin for managing alert bars.
