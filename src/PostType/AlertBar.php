@@ -3,6 +3,7 @@
 
 namespace DeliciousBrains\WPAlertBars\PostType;
 
+use DeliciousBrains\WPAlertBars\Display;
 use DeliciousBrains\WPPostTypes\PostType\AbstractPostType;
 
 class AlertBar extends AbstractPostType {
@@ -38,7 +39,7 @@ class AlertBar extends AbstractPostType {
 			return;
 		}
 
-		wp_enqueue_script( 'dbi-alertbars', DBI_ALERT_BAR_BASE_URL . '/assets/js/alertbars.min.js', array( 'jquery' ), null, true );
-		wp_enqueue_style( 'dbi-alertbars', DBI_ALERT_BAR_BASE_URL . '/assets/css/alertbars.min.css' );
+		Display::enqueue( 'admin/alert-bars.min.js', 'dbi-alertbars', array( 'jquery' ), null, true );
+		Display::enqueue( 'admin/alert-bars.min.css', 'dbi-alertbars' );
 	}
 }

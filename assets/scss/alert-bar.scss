@@ -1,0 +1,121 @@
+.alert-bar {
+	position: relative;
+	padding: 0.5rem 5%;
+	width: 100%;
+	background-color: #F03770;
+	color: #fff;
+	font-size: 0.8rem;
+	text-align: center;
+	z-index: 1;
+
+	&.alert-bar-footer {
+		background-color: rgba(0,0,0,.9);
+		bottom: 0;
+		font-size: .6rem;
+		padding: .3rem 5%;
+		color: #aaa;
+
+		a {
+			color: #aaa;
+			text-decoration: underline;
+		}
+
+		.dismiss {
+			color: #000;
+			font-size: 14px;
+			width: 17px;
+			height: 17px;
+			margin-top: -9px;
+			background-color: #aaa;
+
+			&:before {
+				top: 45%;
+			}
+		}
+	}
+
+	&.alert-bar-sticky {
+		position: fixed;
+		z-index: 2000;
+	}
+
+	@media (max-width: 899px) {
+		padding-right: 10% !important;
+		padding-left: 10% !important;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	a {
+		color: #F9D0AF;
+	}
+
+	.dismiss {
+		position: absolute;
+		right: 11px;
+		top: 50%;
+		width: 22px;
+		height: 22px;
+		margin-top: -11px;
+		color: #000;
+		border-radius: 50%;
+		background-color: #fff;
+		font-size: 20px;
+		font-weight: bold;
+		text-decoration: none;
+		text-align: center;
+		line-height: 1;
+		font-family: sans-serif;
+
+		&:before {
+			content: "×";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translateY(-50%);
+		}
+	}
+
+	.alert-bar__form {
+		display: none;
+		margin: .5rem 0;
+	}
+
+	.alert-bar__countdown {
+		display: inline-block;
+		margin: 0 1rem;
+		padding: 0.5em;
+		background: rgba( 255, 255, 255, 0.25 );
+		border-radius: 2px;
+
+		small {
+			font-size: 60%;
+			opacity: 0.5;
+		}
+	}
+
+	&.alert-bar--show-form {
+		.alert-bar__text {
+			display: none;
+		}
+
+		.alert-bar__form {
+			display: block;
+		}
+	}
+
+	.dbi-btn {
+		background: #fff;
+		color: #F03770;
+		padding: .2rem 0.5rem;
+		margin-left: 1rem;
+		text-transform: none;
+	}
+}
+
+body #wpadminbar {
+	position: fixed;
+}

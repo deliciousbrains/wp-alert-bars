@@ -13,7 +13,7 @@ gulp.task( 'sass', function() {
 } );
 
 gulp.task( 'css', [ 'sass' ], function() {
-	return gulp.src( [ 'assets/css/*.css', '!assets/css/*.min.css' ] )
+	return gulp.src( [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ] )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( cssmin() )
 		.pipe( gulp.dest( 'assets/css' ) )

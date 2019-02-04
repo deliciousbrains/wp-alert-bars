@@ -1,0 +1,87 @@
+@charset "UTF-8";
+.alert-bar {
+  position: relative;
+  padding: 0.5rem 5%;
+  width: 100%;
+  background-color: #F03770;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  z-index: 1; }
+  .alert-bar.alert-bar-footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    font-size: .6rem;
+    padding: .3rem 5%;
+    color: #aaa; }
+    .alert-bar.alert-bar-footer a {
+      color: #aaa;
+      text-decoration: underline; }
+    .alert-bar.alert-bar-footer .dismiss {
+      color: #000;
+      font-size: 14px;
+      width: 17px;
+      height: 17px;
+      margin-top: -9px;
+      background-color: #aaa; }
+      .alert-bar.alert-bar-footer .dismiss:before {
+        top: 45%; }
+  .alert-bar.alert-bar-sticky {
+    position: fixed;
+    z-index: 2000; }
+  @media (max-width: 899px) {
+    .alert-bar {
+      padding-right: 10% !important;
+      padding-left: 10% !important; } }
+  .alert-bar p {
+    margin: 0; }
+  .alert-bar a {
+    color: #F9D0AF; }
+  .alert-bar .dismiss {
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    color: #000;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1;
+    font-family: sans-serif; }
+    .alert-bar .dismiss:before {
+      content: "×";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%); }
+  .alert-bar .alert-bar__form {
+    display: none;
+    margin: .5rem 0; }
+  .alert-bar .alert-bar__countdown {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.5em;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 2px; }
+    .alert-bar .alert-bar__countdown small {
+      font-size: 60%;
+      opacity: 0.5; }
+  .alert-bar.alert-bar--show-form .alert-bar__text {
+    display: none; }
+  .alert-bar.alert-bar--show-form .alert-bar__form {
+    display: block; }
+  .alert-bar .dbi-btn {
+    background: #fff;
+    color: #F03770;
+    padding: .2rem 0.5rem;
+    margin-left: 1rem;
+    text-transform: none; }
+
+body #wpadminbar {
+  position: fixed; }
