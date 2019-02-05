@@ -32,8 +32,8 @@ class Display {
 			return;
 		}
 
-		self::enqueue( 'jquery-cookie.min.js', 'dbi-cookie', array( 'jquery' ), null, true );
-		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'dbi-cookie' ) );
+		self::enqueue( 'jquery.cookie.min.js', 'dbi-cookie', array( 'jquery' ), null, true );
+		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'dbi-cookie' ), null, true );
 		self::enqueue( 'alert-bar.min.css', 'dbi-alertbar' );
 	}
 
