@@ -4,24 +4,36 @@ namespace DeliciousBrains\WPAlertBars;
 
 class Display {
 
+	/**
+	 * @var array
+	 */
+	protected static $bars;
+
 	public function init() {
-		add_action( 'wp_head', array($this, 'render') );
-		add_action( 'wp_enqueue_scripts', array($this, 'register_scripts') , 100 );
+		add_action( 'wp_head', array( $this, 'render' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 100 );
+	}
+
+	/**
+	 * Register alert bars HTML
+	 */
+	public function render() {
+		foreach ( self::$bars as $alert_bar ) {
+			$this->template( 'alert-bar', array( 'alert_bar' => $alert_bar ) );
+		}
 	}
 
 	/**
 	 * Register alert bars and JS
 	 */
-	function render() {
-		$alert_bars = PostType\AlertBar::all();
-
-		foreach ( $alert_bars as $alert_bar ) {
-			$this->template( 'alert-bar', array( 'alert_bar' => $alert_bar ) );
-		}
-	}
-
 	public function register_scripts() {
-		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'jquery', 'jquery-cookie' ) );
+		self::$bars = PostType\AlertBar::all();
+		if ( empty( self::$bars ) ) {
+			return;
+		}
+
+		self::enqueue( 'jquery-cookie.min.js', 'dbi-cookie', array( 'jquery' ), null, true );
+		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'dbi-cookie' ) );
 		self::enqueue( 'alert-bar.min.css', 'dbi-alertbar' );
 	}
 
