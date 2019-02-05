@@ -7,7 +7,7 @@
   color: #fff;
   font-size: 0.8rem;
   text-align: center;
-  z-index: 1; }
+  z-index: 100; }
   .alert-bar.alert-bar-footer {
     background-color: rgba(0, 0, 0, 0.9);
     bottom: 0;
