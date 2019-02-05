@@ -7,18 +7,32 @@ class Display {
 	/**
 	 * @var array
 	 */
-	protected static $bars;
+	protected static $bars = false;
 
 	public function init() {
 		add_action( 'wp_head', array( $this, 'render' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 100 );
+		add_filter( 'body_class', array( $this, 'add_body_class' ) );
+	}
+
+	/**
+	 * @return array
+	 */
+	protected function get_bars() {
+		if ( false !== self::$bars ) {
+			return self::$bars;
+		}
+
+		self::$bars = PostType\AlertBar::all();
+
+		return self::$bars;
 	}
 
 	/**
 	 * Register alert bars HTML
 	 */
 	public function render() {
-		foreach ( self::$bars as $alert_bar ) {
+		foreach ( $this->get_bars() as $alert_bar ) {
 			$this->template( 'alert-bar', array( 'alert_bar' => $alert_bar ) );
 		}
 	}
@@ -27,14 +41,28 @@ class Display {
 	 * Register alert bars and JS
 	 */
 	public function register_scripts() {
-		self::$bars = PostType\AlertBar::all();
-		if ( empty( self::$bars ) ) {
+		if ( empty( $this->get_bars() ) ) {
 			return;
 		}
 
 		self::enqueue( 'jquery.cookie.min.js', 'dbi-cookie', array( 'jquery' ), null, true );
 		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'dbi-cookie' ), null, true );
 		self::enqueue( 'alert-bar.min.css', 'dbi-alertbar' );
+	}
+
+	/**
+	 * Add class to body element if there are alert bars
+	 *
+	 * @param array $classes
+	 *
+	 * @return array
+	 */
+	public function add_body_class( $classes ) {
+		if ( ! empty( $this->get_bars() ) ) {
+			$classes[] = 'has-alert-bar';
+		}
+
+		return $classes;
 	}
 
 	/**
