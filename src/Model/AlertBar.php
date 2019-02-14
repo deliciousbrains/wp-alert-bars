@@ -36,16 +36,18 @@ class AlertBar extends Post {
 			return true;
 		}
 
-		global $post;
+		$args = array();
 
-		if ( empty( $post ) ) {
-			return false;
+		if ( ! is_home() && ! is_archive() ) {
+			global $post;
+
+			if ( ! empty( $post ) ) {
+				$args = array(
+					'post_id'   => $post->ID,
+					'post_type' => $post->post_type,
+				);
+			}
 		}
-
-		$args = array(
-			'post_id'   => $post->ID,
-			'post_type' => $post->post_type,
-		);
 
 		$screen = acf_get_location_screen( $args, array() );
 
