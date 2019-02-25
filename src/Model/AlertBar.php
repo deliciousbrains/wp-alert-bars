@@ -38,7 +38,7 @@ class AlertBar extends Post {
 
 		$args = array();
 
-		if ( ! is_home() && ! is_archive() ) {
+		if ( ! is_home() && ! is_archive() && ! is_search() ) {
 			global $post;
 
 			if ( ! empty( $post ) ) {
