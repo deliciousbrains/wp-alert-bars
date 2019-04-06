@@ -36,7 +36,10 @@ class AlertBar extends Post {
 			return true;
 		}
 
-		$args = array();
+		$args = array(
+			'post_id'   => -1,
+			'post_type' => 'page',
+		);
 
 		if ( ! is_home() && ! is_archive() && ! is_search() ) {
 			global $post;
