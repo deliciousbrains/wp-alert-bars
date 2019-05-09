@@ -62,7 +62,7 @@ class AlertBar extends Post {
 			$match_group = true;
 			foreach ( $group as $rule_id => $rule ) {
 
-				if ( ! acf_match_location_rule( $rule, $screen ) ) {
+				if ( ! $this->acf_match_location_rule( $rule, $screen ) ) {
 					$match_group = false;
 					break;
 				}
@@ -75,5 +75,21 @@ class AlertBar extends Post {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Shim for for ACF's function acf_match_location_rule.
+	 *
+	 * @param $rule
+	 * @param $screen
+	 *
+	 * @return bool|mixed|null|void
+	 */
+	protected function acf_match_location_rule( $rule, $screen ) {
+		if ( version_compare( ACF()->version, '5.8.0', '>=' ) ) {
+			return acf_match_location_rule( $rule, $screen, array() );
+		}
+
+		return acf_match_location_rule( $rule, $screen );
 	}
 }
