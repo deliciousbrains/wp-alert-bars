@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .alert-bar {
   position: relative;
-  padding: 0.5rem 5%;
+  padding: 0 5%;
   width: 100%;
   background-color: #F03770;
   color: #fff;
@@ -34,7 +34,8 @@
       padding-right: 10% !important;
       padding-left: 10% !important; } }
   .alert-bar p {
-    margin: 0; }
+    margin: 0.6rem 0.5rem 0;
+    display: inline-block; }
   .alert-bar a {
     color: #F9D0AF; }
   .alert-bar .dismiss {
@@ -80,8 +81,8 @@
     background: #fff;
     color: #F03770;
     padding: .2rem 0.5rem;
-    margin-left: 1rem;
-    text-transform: none; }
+    text-transform: none;
+    margin: 0.6rem 0.5rem; }
 
 body #wpadminbar {
   position: fixed; }
