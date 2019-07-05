@@ -10,7 +10,7 @@ class Display {
 	protected static $bars = false;
 
 	public function init() {
-		add_action( 'wp_head', array( $this, 'render' ) );
+		add_action( 'wp_body_open', array( $this, 'render' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 100 );
 		add_filter( 'body_class', array( $this, 'add_body_class' ) );
 	}
