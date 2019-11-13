@@ -11,15 +11,20 @@
 define( 'DBI_ALERT_BAR_BASE_DIR', WPMU_PLUGIN_DIR . '/' . basename( __DIR__ ) );
 define( 'DBI_ALERT_BAR_BASE_URL', WPMU_PLUGIN_URL . '/' . basename( __DIR__ ) );
 
-if ( ! class_exists( 'ACF' ) ) {
-	return;
-}
+add_action( 'plugins_loaded', 'dbi_alert_bars' );
+function dbi_alert_bars() {
+	if ( ! class_exists( 'ACF' ) ) {
+		return;
+	}
 
-( new DeliciousBrains\WPAlertBars\Admin\AlertBarScheduler() )->init();
-( new DeliciousBrains\WPAlertBars\Admin\AlertBarRules() )->init();
-( new DeliciousBrains\WPAlertBars\PostType\AlertBar() )->init();
-( new DeliciousBrains\WPAlertBars\Display() )->init();
+	require_once WP_PLUGIN_DIR . '/advanced-custom-fields-pro/includes/admin/admin-field-group.php';
 
-if ( is_admin() ) {
-	( new \DeliciousBrains\WPAlertBars\Admin\ACF() )->init();
+	( new DeliciousBrains\WPAlertBars\Admin\AlertBarScheduler() )->init();
+	( new DeliciousBrains\WPAlertBars\Admin\AlertBarRules() )->init();
+	( new DeliciousBrains\WPAlertBars\PostType\AlertBar() )->init();
+	( new DeliciousBrains\WPAlertBars\Display() )->init();
+
+	if ( is_admin() ) {
+		( new \DeliciousBrains\WPAlertBars\Admin\ACF() )->init();
+	}
 }
