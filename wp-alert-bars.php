@@ -11,6 +11,10 @@
 define( 'DBI_ALERT_BAR_BASE_DIR', WPMU_PLUGIN_DIR . '/' . basename( __DIR__ ) );
 define( 'DBI_ALERT_BAR_BASE_URL', WPMU_PLUGIN_URL . '/' . basename( __DIR__ ) );
 
+if ( ! class_exists( 'ACF' ) ) {
+	return;
+}
+
 ( new DeliciousBrains\WPAlertBars\Admin\AlertBarScheduler() )->init();
 ( new DeliciousBrains\WPAlertBars\Admin\AlertBarRules() )->init();
 ( new DeliciousBrains\WPAlertBars\PostType\AlertBar() )->init();
