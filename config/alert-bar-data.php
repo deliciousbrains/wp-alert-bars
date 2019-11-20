@@ -5,7 +5,7 @@ acf_add_local_field_group( array(
 	'fields'                => array(
 		array(
 			'key'               => 'field_5bf3e2459447e',
-			'label'             => 'Type',
+			'label'             => 'Position',
 			'name'              => 'type',
 			'type'              => 'radio',
 			'instructions'      => '',
@@ -26,6 +26,34 @@ acf_add_local_field_group( array(
 			'layout'            => 'horizontal',
 			'return_format'     => 'value',
 			'save_other_choice' => 0,
+		),
+		array(
+			'key' => 'field_566d54cdb28616',
+			'label' => 'Behaviour',
+			'name' => 'behaviour',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'dismiss' => 'Dismissable',
+				'minimize' => 'Minimizable',
+				'permanent' => 'Permanent',
+			),
+			'default_value' => array(
+				0 => 'dismiss',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
 		),
 		array(
 			'key'               => 'field_5bf3e2569447f',

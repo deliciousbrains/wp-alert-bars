@@ -35,7 +35,11 @@
 				if ( $notice[ 0 ] ) {
 					$( '.dismiss', $notice ).click( function( e ) {
 						e.preventDefault();
-						$( this ).parents( '.alert-bar' ).hide();
+						if ( $( this ).parents( '.alert-bar' ).hasClass( 'alert-bar-narrow' ) ) {
+							$( this ).parents( '.alert-bar' ).addClass( 'alert-bar--narrow' ).removeClass( 'alert-bar--show-form' );
+						} else {
+							$( this ).parents( '.alert-bar' ).hide();
+						}
 						$.cookie( alert_bar, 1, { expires: 365, path: '/' } );
 					} );
 
@@ -58,6 +62,7 @@
 										.show()
 										.animate( { 'margin-top': 0 }, 800 );
 								}
+
 								var $timer = $notice.find( '.alert-bar__countdown' );
 
 								if ( $timer.length > 0 ) {
@@ -65,6 +70,10 @@
 								}
 							}, 1000 );
 						} );
+					} else {
+						if ( $notice.hasClass( 'alert-bar-narrow' ) ) {
+							$notice.addClass( 'alert-bar--narrow' ).show();
+						}
 					}
 				}
 			} );
