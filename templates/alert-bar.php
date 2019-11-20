@@ -10,6 +10,9 @@ if ( $alert_bar->is_sticky ) {
 
 <div class="alert-bar<?php echo $class; ?>" data-slug="<?php echo $alert_bar->key; ?>-alert-bar" style="display: none;">
 	<p>
+		<?php if ( $alert_bar->countdown_end ) {
+			include_once 'alert-bar-countdown.php';
+		} ?>
 		<?php echo $alert_bar->message; ?>
 	</p>
 	<?php if ( $alert_bar->cta ) : ?>

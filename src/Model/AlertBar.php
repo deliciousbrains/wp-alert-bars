@@ -18,12 +18,15 @@ class AlertBar extends Post {
 			return;
 		}
 
-		$this->key       = $this->post_name;
-		$this->message   = $this->post_content;
-		$this->cta       = $this->meta( 'cta', array() );
-		$this->is_footer = 'header' !== $this->meta( 'type', 'header' );
-		$this->is_sticky = $this->meta( 'sticky', false );
-		$this->locations = $this->meta( AlertBarRules::META_KEY, array() );
+		$this->key                  = $this->post_name;
+		$this->message              = $this->post_content;
+		$this->cta                  = $this->meta( 'cta', array() );
+		$this->is_footer            = 'header' !== $this->meta( 'type', 'header' );
+		$this->is_sticky            = $this->meta( 'sticky', false );
+		$this->locations            = $this->meta( AlertBarRules::META_KEY, array() );
+		$this->countdown_end        = $this->meta( 'countdown_end', false );
+		$this->countdown_bg_color   = $this->meta( 'countdown_bg_color', false );
+		$this->countdown_text_color = $this->meta( 'countdown_text_color', false );
 	}
 
 	/**

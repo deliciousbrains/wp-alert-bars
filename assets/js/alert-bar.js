@@ -61,7 +61,7 @@
 								var $timer = $notice.find( '.alert-bar__countdown' );
 
 								if ( $timer.length > 0 ) {
-									BRAINS_ALERT_BAR.setup_countdown( $timer );
+									DBI_ALERT_BAR.setup_countdown( $timer );
 								}
 							}, 1000 );
 						} );
@@ -85,7 +85,7 @@
 					$timer = $alert_bar.find( '.alert-bar__countdown' );
 
 					if ( $timer.length > 0 ) {
-						BRAINS_ALERT_BAR.setup_countdown( $timer );
+						DBI_ALERT_BAR.setup_countdown( $timer );
 					}
 
 					return;
@@ -105,10 +105,10 @@
 			var $minutes = $timer.find( '.minutes' );
 			var $seconds = $timer.find( '.seconds' );
 
-			BRAINS_ALERT_BAR.update_countdown( date, $days, $hours, $minutes, $seconds );
+			DBI_ALERT_BAR.update_countdown( date, $days, $hours, $minutes, $seconds );
 
 			var interval = setInterval( function() {
-				var remaining = BRAINS_ALERT_BAR.update_countdown( date, $days, $hours, $minutes, $seconds );
+				var remaining = DBI_ALERT_BAR.update_countdown( date, $days, $hours, $minutes, $seconds );
 
 				if ( remaining.total <= 0 ) {
 					clearInterval( interval );
@@ -120,7 +120,7 @@
 		 * Update a countdown timer's elements.
 		 */
 		update_countdown: function( date, $days, $hours, $minutes, $seconds ) {
-			var remaining = BRAINS_ALERT_BAR.calculate_time_remaining( date );
+			var remaining = DBI_ALERT_BAR.calculate_time_remaining( date );
 
 			$days.html( remaining.days );
 			$hours.html( remaining.hours );
