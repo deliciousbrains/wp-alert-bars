@@ -45,9 +45,9 @@ class Display {
 			return;
 		}
 
-		self::enqueue( 'jquery.cookie.min.js', 'dbi-cookie', array( 'jquery' ), null, true );
-		self::enqueue( 'alert-bar.min.js', 'dbi-alertbar', array( 'dbi-cookie' ), null, true );
-		self::enqueue( 'alert-bar.min.css', 'dbi-alertbar' );
+		self::enqueue( 'jquery.cookie.js', 'dbi-cookie', array( 'jquery' ), null, true );
+		self::enqueue( 'alert-bar.js', 'dbi-alertbar', array( 'dbi-cookie' ), null, true );
+		self::enqueue( 'alert-bar.css', 'dbi-alertbar' );
 	}
 
 	/**
@@ -90,7 +90,12 @@ class Display {
 		$ext   = array_pop( $parts );
 		$file  = implode( '.', $parts );
 
-		$base = '/assets/' . $ext . '/' . $file  . '.' . $ext;
+		$suffix = '';
+		if ( ! defined( 'SCRIPT_DEBUG' ) || ! SCRIPT_DEBUG ) {
+			$suffix = '.min';
+		}
+
+		$base = '/assets/' . $ext . '/' . $file  . $suffix  . '.' . $ext;
 
 		$path = DBI_ALERT_BAR_BASE_DIR . $base;
 		$src  = DBI_ALERT_BAR_BASE_URL . $base;
