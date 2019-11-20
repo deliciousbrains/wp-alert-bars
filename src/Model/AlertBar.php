@@ -18,9 +18,14 @@ class AlertBar extends Post {
 			return;
 		}
 
+		$this->id                   = $this->ID;
 		$this->key                  = $this->post_name;
 		$this->message              = $this->post_content;
+		$this->bg_color             = $this->meta( 'bg_color', false );
+		$this->text_color           = $this->meta( 'text_color', false );
 		$this->cta                  = $this->meta( 'cta', array() );
+		$this->cta_bg_color         = $this->meta( 'cta_bg_color', false );
+		$this->cta_text_color       = $this->meta( 'cta_text_color', false );
 		$this->is_footer            = 'header' !== $this->meta( 'type', 'header' );
 		$this->is_sticky            = $this->meta( 'sticky', false );
 		$this->locations            = $this->meta( AlertBarRules::META_KEY, array() );
