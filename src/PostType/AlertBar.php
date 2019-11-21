@@ -39,7 +39,7 @@ class AlertBar extends AbstractPostType {
 			return;
 		}
 
-		Display::enqueue( 'admin/alert-bars.min.js', 'dbi-alertbars', array( 'jquery' ), null, true );
-		Display::enqueue( 'admin/alert-bars.min.css', 'dbi-alertbars' );
+		Display::enqueue( 'admin/alert-bars.js', 'dbi-alertbars', array( 'jquery' ), null, true );
+		Display::enqueue( 'admin/alert-bars.css', 'dbi-alertbars' );
 	}
 }
