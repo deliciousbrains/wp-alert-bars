@@ -143,7 +143,11 @@
 		 * Calculate the time remaining.
 		 */
 		calculate_time_remaining: function( end_time ) {
-			var time = Date.parse( end_time ) - Date.parse( new Date() );
+			end_time = end_time.replace(/ /g,"T"); // Fix for Safari not liking the space between date and time in the string
+			var endDate = new Date( end_time );
+			var nowDate = new Date();
+
+			var time = endDate.getTime() - nowDate.getTime();
 			var seconds = Math.floor( (time / 1000) % 60 );
 			var minutes = Math.floor( (time / 1000 / 60) % 60 );
 			var hours = Math.floor( (time / (1000 * 60 * 60)) % 24 );
