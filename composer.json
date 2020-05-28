@@ -12,8 +12,8 @@
   "type": "wordpress-muplugin",
   "require": {
     "composer/installers": "~1.0",
-    "deliciousbrains/wp-post-types": "dev-master",
-    "lkwdwrd/wp-muplugin-loader": "~1.0.0"
+    "lkwdwrd/wp-muplugin-loader": "~1.0.0",
+    "deliciousbrains/wp-post-types": "^1.0"
   },
   "autoload": {
     "psr-4": {
