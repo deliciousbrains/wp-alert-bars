@@ -52,7 +52,7 @@
 									$notice.insertAfter( $last_footer ).show();
 
 									if ( $notice.hasClass( 'alert-bar-sticky' ) ) {
-										$( 'body' ).addClass( 'footer-sticky-alert-bar' ).css( 'padding-bottom', $last_footer.height() );
+										$( 'body' ).addClass( 'footer-sticky-alert-bar' ).css( 'padding-bottom', $notice.outerHeight() );
 									}
 
 								} else {
