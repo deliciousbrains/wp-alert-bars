@@ -22,8 +22,6 @@
 				return;
 			}
 
-			$( 'body' ).wrapInner( '<div class="js-body-wrap" />' );
-
 			$alert_bars.each( function() {
 				if ( $.cookie( 'dbrains-coupon' ) || $.cookie( 'dbrains-coupon-error' ) ) {
 					return;
@@ -57,10 +55,15 @@
 
 								} else {
 									$notice
-										.insertBefore( $notice.closest( '.js-body-wrap' ) )
+										.prependTo( 'body' )
 										.css( 'margin-top', -1 * $notice.outerHeight() )
 										.show()
 										.animate( { 'margin-top': 0 }, 800 );
+
+									if ( $notice.hasClass( 'alert-bar-sticky' ) ) {
+										$( 'body' ).addClass( 'header-sticky-alert-bar' ).animate( { 'padding-top': $notice.outerHeight() }, 800 );
+										$notice.css( 'top', $( '#wpadminbar' ).length ? $( '#wpadminbar' ).outerHeight() : 0 );
+									}
 								}
 
 								var $timer = $notice.find( '.alert-bar__countdown' );
