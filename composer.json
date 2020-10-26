@@ -10,16 +10,10 @@
     }
   ],
   "type": "wordpress-muplugin",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/polevaultweb/wp-muplugin-loader"
-    }
-  ],
   "require": {
     "composer/installers": "~1.0",
     "deliciousbrains/wp-post-types": "^1.0",
-    "lkwdwrd/wp-muplugin-loader": "^1.0"
+    "boxuk/wp-muplugin-loader": "^1.2"
   },
   "autoload": {
     "psr-4": {
