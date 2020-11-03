@@ -9,9 +9,16 @@ if ( $alert_bar->is_sticky ) {
 if ( 'minimize' === $alert_bar->behaviour ) {
 	$class .= ' alert-bar-narrow';
 }
+
+$css = '';
+if ( $alert_bar->height ) {
+	$class .= ' alert-bar--custom-height';
+	$css = 'height:'. $alert_bar->height .'px;';
+}
+
 ?>
 
-<div id="alert-bar-<?php echo $alert_bar->id; ?>" class="alert-bar<?php echo $class; ?>" data-slug="<?php echo $alert_bar->key; ?>-alert-bar" style="display: none;">
+<div id="alert-bar-<?php echo $alert_bar->id; ?>" class="alert-bar<?php echo $class; ?>" data-slug="<?php echo $alert_bar->key; ?>-alert-bar" style="display: none;<?php echo $css; ?>">
 	<?php if ( $alert_bar->countdown_end ) {
 		include_once 'alert-bar-countdown.php';
 	} ?>

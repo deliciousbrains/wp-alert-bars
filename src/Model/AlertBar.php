@@ -29,6 +29,7 @@ class AlertBar extends Post {
 		$this->behaviour            = $this->meta( 'behaviour', 'dismiss' );
 		$this->is_footer            = 'header' !== $this->meta( 'type', 'header' );
 		$this->is_sticky            = $this->meta( 'sticky', false );
+		$this->height               = $this->meta( 'height', false );
 		$this->locations            = $this->meta( AlertBarRules::META_KEY, array() );
 		$this->countdown_end        = $this->meta( 'countdown_end', false );
 		$this->countdown_bg_color   = $this->meta( 'countdown_bg_color', false );
