@@ -104,6 +104,10 @@
       display: none; }
     .alert-bar.alert-bar--narrow .dismiss {
       display: none; }
+  .alert-bar--custom-height {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
 
 body #wpadminbar {
   position: fixed; }

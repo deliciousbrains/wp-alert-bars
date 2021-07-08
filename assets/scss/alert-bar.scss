@@ -152,6 +152,12 @@
 			display: none;
 		}
 	}
+
+	&--custom-height {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 body #wpadminbar {
